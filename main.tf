@@ -34,7 +34,7 @@ resource "azurerm_subnet" "backend" {
 }
 
 resource "azurerm_network_security_group" "web" {
-  name                = "nsg-web01"
+  name                = "nsg-${var.environment}-web01"
   location            = var.location
   resource_group_name = data.azurerm_resource_group.lab.name
   security_rule {
@@ -52,7 +52,7 @@ resource "azurerm_network_security_group" "web" {
 }
 
 resource "azurerm_public_ip" "web" {
-  name                = "pip-web01"
+  name                = "pip-${var.environment}-web01"
   location            = var.location
   resource_group_name = data.azurerm_resource_group.lab.name
   allocation_method   = "Static"
@@ -61,7 +61,7 @@ resource "azurerm_public_ip" "web" {
 }
 
 resource "azurerm_network_interface" "web" {
-  name                = "nic-web01"
+  name                = "nic-${var.environment}-web01"
   location            = var.location
   resource_group_name = data.azurerm_resource_group.lab.name
   tags                = local.common_tags

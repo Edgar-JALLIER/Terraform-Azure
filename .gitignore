@@ -3,6 +3,7 @@
 *.tfstate.*
 crash.log
 *.tfvars
+!*.tfvars.example
 !terraform.tfvars.example
 *.pem
 *.key
